@@ -4,16 +4,18 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String operator;
+        double firstvalue;
+        double secondvalue;
         double result;
 
         System.out.println("First value:");
-        double firstvalue = CorrectNumb();
+        firstvalue = CorrectNumb();
 
         System.out.println("Console operation:");
         operator = sc.next();
 
         System.out.println("Second value:");
-        double secondvalue = CorrectNumb();
+        secondvalue = CorrectNumb();
 
         switch (operator) {
             case "+": {
