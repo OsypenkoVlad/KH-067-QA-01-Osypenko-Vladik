@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Task4Array {
     public static void main(String[] args) {
@@ -17,41 +19,25 @@ public class Task4Array {
                         System.out.println("Enter the maximum length:");
                         int k = sc.nextInt();
                         System.out.println("Result:");
-                        for (int i = 0; i < array.length; i++) {
-                            if (array[i].length() <= k) {
-                                System.out.println(array[i]);
-                            }
-                        }
+                        IntStream.range(0, array.length).filter(i -> array[i].length() <= k).mapToObj(i -> array[i]).forEach(System.out::println);
                         break;
                     case '2':
                         System.out.println("Enter the beginning of the line:");
                         String f_str = sc.next();
                         System.out.println("Result:");
-                        for (int i = 0; i < array.length; i++) {
-                            if (array[i].startsWith(f_str) == true) {
-                                System.out.println(array[i]);
-                            }
-                        }
+                        IntStream.range(0, array.length).filter(i -> array[i].startsWith(f_str) == true).mapToObj(i -> array[i]).forEach(System.out::println);
                         break;
                     case '3':
                         System.out.println("Enter ending of the line:");
                         String l_str = sc.next();
                         System.out.println("Result:");
-                        for (int i = 0; i < array.length; i++) {
-                            if (array[i].endsWith(l_str) == true) {
-                                System.out.println(array[i]);
-                            }
-                        }
+                        Arrays.stream(array).filter(s -> s.endsWith(l_str) == true).forEach(System.out::println);
                         break;
                     case '4':
                         System.out.println("Enter part of a string:");
                         String e_str = sc.next();
                         System.out.println("Result:");
-                        for (int i = 0; i < array.length; i++) {
-                            if (array[i].contains(e_str) == true) {
-                                System.out.println(array[i]);
-                            }
-                        }
+                        IntStream.range(0, array.length).filter(i -> array[i].contains(e_str) == true).mapToObj(i -> array[i]).forEach(System.out::println);
                         break;
                     case '0':
                         System.exit(0);
@@ -59,7 +45,7 @@ public class Task4Array {
                         System.out.println("Error. Unidentified operation.");
                         System.exit(1);
                 }
-            }while(array.length != 0);
+            }while(true);
         } else {
             System.out.println("Not enough words.");
             System.exit(1);
